@@ -4,7 +4,7 @@ import os
 from flask import current_app as app
 
 # TODO: Better acl
-def s3_upload(key, file_contents, acl='public-read'):
+def s3_upload(key, file_contents, acl='private'):
     # Connect to S3 and upload file.
     conn = boto.connect_s3(app.config["S3_KEY"], app.config["S3_SECRET"])
     bucket = conn.get_bucket(app.config["S3_BUCKET"])
